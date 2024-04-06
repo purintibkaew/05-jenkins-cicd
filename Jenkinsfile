@@ -41,8 +41,7 @@ pipeline {
                         sonar-scanner \
                         -Dsonar.projectKey="05-jenkins-cicd" \
                         -Dsonar.sources=. \
-                        -Dsonar.host.url=${SONARQUBE_SERVER} \
-                        -Dsonar.projectBaseDir=${WORKSPACE}
+                        -Dsonar.host.url=${SONARQUBE_SERVER} 
                     """
                 }
             }
