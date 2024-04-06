@@ -2,7 +2,7 @@ pipeline {
     agent any
     tools { 
         nodejs "NodeJS 16" 
-        hudson.plugins.sonar.SonarRunnerInstallation 'sonar'
+        // hudson.plugins.sonar.SonarRunnerInstallation 'sonar'
     }
     environment {
         // Define environment variables
