@@ -2,6 +2,7 @@ pipeline {
     agent any
     tools { 
         nodejs "NodeJS 16" 
+        sonarQubeScanner 'sonar'
     }
     environment {
         // Define environment variables
