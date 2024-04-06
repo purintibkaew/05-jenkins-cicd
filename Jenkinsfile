@@ -33,7 +33,7 @@ pipeline {
         
         stage('SonarQube Analysis') {
             steps {
-                withSonarQubeEnv(credentialsId: 'sonar-token') {
+                withSonarQubeEnv(credentialsId: 'sonar-token', installationName: 'sonar') {
                     sh """
                         sonar-scanner \
                         -Dsonar.projectKey="05-jenkins-cicd" \
