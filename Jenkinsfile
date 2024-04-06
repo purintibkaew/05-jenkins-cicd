@@ -8,7 +8,7 @@ pipeline {
     }
     environment {
         // Define environment variables
-        DOCKER_REGISTRY = 'usfomysis'
+        DOCKER_REGISTRY = 'ufomysis'
         DOCKER_IMAGE_NAME = '05-jenkins-cicd'
         DOCKER_CREDENTIALS_ID = 'dockerhub-id'
         SONARQUBE_SERVER = 'localhost:9000'
@@ -35,7 +35,7 @@ pipeline {
         
         stage('SonarQube Analysis') {
             steps {
-                withSonarQubeEnv(credentialsId: 'sonar-token', installationName: 'sonar') {
+                withSonarQubeEnv(credentialsId: 'sonar-token', installationName: 'sonar-server') {
                     sh """
                         sonar-scanner \
                         -Dsonar.projectKey="05-jenkins-cicd" \
