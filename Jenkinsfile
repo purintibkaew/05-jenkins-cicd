@@ -2,6 +2,8 @@ pipeline {
     agent any
     tools { 
         nodejs "NodeJS 16" 
+        // sonarQubeScanner 'sonar' 
+
         // hudson.plugins.sonar.SonarRunnerInstallation 'sonar'
     }
     environment {
