@@ -40,8 +40,7 @@ pipeline {
                         sonar-scanner \
                         -Dsonar.projectKey="05-jenkins-cicd" \
                         -Dsonar.sources=. \
-                        -Dsonar.host.url=${SONARQUBE_SERVER} \
-                        -Dsonar.login=${SECRET}
+                        -Dsonar.host.url=${SONARQUBE_SERVER} 
                     """
                 }
             }
