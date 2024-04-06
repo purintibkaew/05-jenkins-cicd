@@ -13,6 +13,7 @@ pipeline {
         DOCKER_CREDENTIALS_ID = 'dockerhub-id'
         SONARQUBE_SERVER = 'localhost:9000'
         SONARQUBE_TOKEN_ID = 'sonar-token'
+        WORKSPACE = '/home/jenkins/agent/workspace/05-jenkins-cicd'
         // KUBECONFIG_CREDENTIALS_ID = 'your_kubeconfig_credentials_id'
     }
     
@@ -40,7 +41,8 @@ pipeline {
                         sonar-scanner \
                         -Dsonar.projectKey="05-jenkins-cicd" \
                         -Dsonar.sources=. \
-                        -Dsonar.host.url=${SONARQUBE_SERVER} 
+                        -Dsonar.host.url=${SONARQUBE_SERVER} \
+                        -Dsonar.projectBaseDir=${WORKSPACE}
                     """
                 }
             }
