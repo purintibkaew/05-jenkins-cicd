@@ -2,7 +2,7 @@ pipeline {
     agent any
     tools { 
         nodejs "NodeJS 16" 
-        sonarQubeScanner 'sonar'
+        hudson.plugins.sonar.SonarRunnerInstallation 'sonar'
     }
     environment {
         // Define environment variables
@@ -10,7 +10,7 @@ pipeline {
         DOCKER_IMAGE_NAME = '05-jenkins-cicd'
         DOCKER_CREDENTIALS_ID = 'dockerhub-id'
         SONARQUBE_SERVER = 'localhost:9000'
-        SONARQUBE_TOKEN_ID = 'sonar-token	'
+        SONARQUBE_TOKEN_ID = 'sonar-token'
         // KUBECONFIG_CREDENTIALS_ID = 'your_kubeconfig_credentials_id'
     }
     
@@ -33,10 +33,10 @@ pipeline {
         
         stage('SonarQube Analysis') {
             steps {
-                withCredentials([string(credentialsId: SONARQUBE_TOKEN_ID, variable: 'SONARQUBE_TOKEN')]) {
+                withCredentials([string(credentialsId: 'SONARQUBE_TOKEN_ID', variable: 'SONARQUBE_TOKEN')]) {
                     sh """
                         sonar-scanner \
-                        -Dsonar.projectKey="YourProjectKey" \
+                        -Dsonar.projectKey="05-jenkins-cicd" \
                         -Dsonar.sources=. \
                         -Dsonar.host.url=${SONARQUBE_SERVER} \
                         -Dsonar.login=${SONARQUBE_TOKEN}
