@@ -1,6 +1,8 @@
 pipeline {
     agent any
-    
+    tools { 
+        nodejs "NodeJS 16" 
+    }
     environment {
         // Define environment variables
         DOCKER_REGISTRY = 'usfomysis'
